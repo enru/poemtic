@@ -20,7 +20,7 @@ $(document).ready(function() {
 	outputLine(poem) 
     window.intervalId = window.setInterval(function() { 
         outputLine(poem) 
-    }, 5000)
+    }, 7500)
 });
 
 outputLine = function(poem) {
