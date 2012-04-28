@@ -1,0 +1,9 @@
+img { border: none; }
+#wrapper { position: relative; }
+#text { 
+position: absolute; 
+position: absolute;
+background-color: lightgray;
+padding: 10px;
+}
+
