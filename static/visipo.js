@@ -31,12 +31,12 @@ outputLine = function(poem) {
             url: "/word",
             data: { words: line }
         }).done(function(img) {
-			$('#wrapper').fadeOut(function() {})
-			$('#text').html(line);
-            //$('#image').css("background-image", "url("+img+")");
-            $('#image').attr('src', img);
-            $('#image').attr('alt', line);
-			$('#wrapper').fadeIn(function() {})
+			$('#wrapper').fadeOut('slow', function() {
+				$('#text').html(line);
+				$('#image').attr('src', img);
+				$('#image').attr('alt', line);
+			})
+			$('#wrapper').fadeIn('slow', function() {})
         });
 
     }
