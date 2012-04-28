@@ -35,8 +35,8 @@ outputLine = function(poem) {
 				$('#text').html(line);
 				$('#image').attr('src', img);
 				$('#image').attr('alt', line);
+				$('#wrapper').fadeIn('slow', function() {})
 			})
-			$('#wrapper').fadeIn('slow', function() {})
         });
 
     }
