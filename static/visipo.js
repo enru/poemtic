@@ -33,6 +33,7 @@ outputLine = function(poem) {
         }).done(function(img) {
 			$('#wrapper').fadeOut('slow', function() {
 				$('#text').html(line);
+				$('#full').append(line);
 				$('#image').attr('src', img);
 				$('#image').attr('alt', line);
 				$('#wrapper').fadeIn('slow', function() {})
