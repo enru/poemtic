@@ -1,10 +1,6 @@
 img { border: none; }
-#wrapper { position: relative; }
-#text { 
-	position: absolute;
-}
-.text {
-	background-color: lightgray;
-	padding: 10px;
-}
+#wrapper { margin: auto; width: 50%; }
+#image-text { position: relative; }
+#text { position: absolute; }
+.text { background-color: lightgray; padding: 10px; }
 

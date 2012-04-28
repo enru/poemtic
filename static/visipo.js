@@ -14,32 +14,78 @@ var poem = [
 "into the blaze. But where will they arrive",
 "with all, boat, city, earth, like them, afloat?"]
 
-window.line = 0;
+window.line = 0
+window.imgs = []
+
+var ajaxQueue = $({});
+$.ajaxQueue = function(ajaxOpts) {
+	var oldComplete = ajaxOpts.complete;
+	ajaxQueue.queue(function(next) {
+	  ajaxOpts.complete = function() {
+		if (oldComplete) oldComplete.apply(this, arguments);
+		next(); 
+	  };
+	  $.ajax(ajaxOpts);
+	});
+};
 
 $(document).ready(function() {
-	outputLine(poem) 
+	var theQueue = $({}); 
+	$.each(poem, function() {
+		outputLine(poem) 
+	})
+
+	/*
     window.intervalId = window.setInterval(function() { 
         outputLine(poem) 
-    }, 7500)
+    }, 2500)
+	*/
+
+	$('#full-poem-button').toggle(
+		function() { $('#full').show() },
+		function() { $('#full').hide() }
+	);
 });
 
 outputLine = function(poem) {
     if(window.line < poem.length) {
         var line = poem[window.line++];
-        $.ajax({
-            type: "POST",
+        $.ajaxQueue({
+            type: 'POST',
+			dataType: 'json',
             url: "/word",
-            data: { words: line }
-        }).done(function(img) {
-			$('#wrapper').fadeOut('slow', function() {
-				$('#text').html(line);
-				$('#full').append(line);
-				$('#image').attr('src', img);
-				$('#image').attr('alt', line);
-				$('#wrapper').fadeIn('slow', function() {})
-			})
-        });
-
+            data: { words: line },
+        	success: function(data) {
+				console.log(window.line)
+				console.log(data)
+				window.imgs.push(data.url)
+				$('#wrapper').fadeOut('slow', function() {
+					$('full').hide();
+					$('#text').html(line);
+					$('#full').append(line+"<br/>");
+					$('#image').attr('src', data.url);
+					$('#image').attr('alt', line);
+					$('#wrapper').fadeIn('slow', function() {})
+				})
+			}
+		})
     }
-    else window.clearInterval(window.intervalId);
+    else {
+		window.clearInterval(window.intervalId);
+			$('#wrapper').fadeOut('slow', function() {
+				rows = Math.ceil(window.imgs.length/3)
+				tbl = "<tbl>"
+				for(var i=0; i < window.imgs; i++) {
+					tbl += "<td><img src='"+window.imgs[i]+"' width='100px'/></td>"
+					if(0 == i % rows) {
+						tbl += "</tr><tr>"
+					}
+				}
+				tbl = "</tbl>"
+				$('#wrapper').empty()
+				$(tbl).appendTo('#wrapper')
+				$('#wrapper').fadeIn('slow', function() {})
+
+			})
+	}
 }
