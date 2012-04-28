@@ -19,10 +19,14 @@ img { border: none; }
 font-size: 100px; 
 -webkit-transform: rotate(90deg); 
 -moz-transform: rotate(90deg);	
+/*
 position: absolute;
 right: 0px;
 top: 0px;
 margin-top: 205px; 
+*/
+margin-top: -200px; 
+float: right;
 }
 .credits { font-size: 10px; line-height: 11px; }
 .clear { clear: both; }
