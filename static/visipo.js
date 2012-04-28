@@ -61,10 +61,23 @@ outputLine = function(poem) {
 				window.imgs.push(data.url)
 				$('#wrapper').fadeOut('slow', function() {
 					$('full').hide();
+					$('#word').html(data.word);
 					$('#text').html(line);
-					$('#full').append(line+"<br/>");
+					$('#full').append(line+'<br/>');
 					$('#image').attr('src', data.url);
 					$('#image').attr('alt', line);
+					$('#image-credits').html(
+						'<p>'
+						+'<a href="'
+						+data.user.url
+						+'">'
+						+data.user.real
+						+' ('
+						+data.user.name
+						+') '
+						+'</a>'
+						+'</p>'
+					)
 					$('#wrapper').fadeIn('slow', function() {})
 				})
 			}

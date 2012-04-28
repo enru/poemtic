@@ -1,6 +1,29 @@
+@font-face {
+    font-family: 'MonospaceTypewriterRegular';
+    src: url('/static/MonospaceTypewriter-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {font: 18px/27px 'MonospaceTypewriterRegular', Arial, sans-serif;}
+a { font-size: 8px; }
+p { margin: 0; padding: 0; }
+
 img { border: none; }
-#wrapper { margin: auto; width: 50%; }
-#image-text { position: relative; }
+#wrapper { margin: 0 25px auto; width: 100%; }
+#image-text { position: relative; width: 100%; }
 #text { position: absolute; }
 .text { background-color: lightgray; padding: 10px; }
+#word { 
+font-size: 100px; 
+-webkit-transform: rotate(90deg); 
+-moz-transform: rotate(90deg);	
+position: absolute;
+right: 0px;
+top: 0px;
+margin-top: 205px; 
+}
+.credits { font-size: 10px; line-height: 11px; }
+.clear { clear: both; }
 
