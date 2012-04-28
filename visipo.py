@@ -22,17 +22,18 @@ class Visipo():
 				'JJS',
 				'NN',
 				'NNS',
-				'NNP',
+				#'NNP',
 				'NNPS',
 				'RB',
 				'RBR',
 				'RBS',
 				'VB',
-				'VBD',
-				'VBG',
-				'VBN',
-				'VBP',
-				'VBZ']:
+				#'VBD',
+				#'VBG',
+				#'VBN',
+				#'VBP',
+				#'VBZ'
+				]:
 				words.append(word[0])
 		return words
 

@@ -29,24 +29,6 @@ $.ajaxQueue = function(ajaxOpts) {
 	});
 };
 
-$(document).ready(function() {
-	var theQueue = $({}); 
-	$.each(poem, function() {
-		outputLine(poem) 
-	})
-
-	/*
-    window.intervalId = window.setInterval(function() { 
-        outputLine(poem) 
-    }, 2500)
-	*/
-
-	$('#full-poem-button').toggle(
-		function() { $('#full').show() },
-		function() { $('#full').hide() }
-	);
-});
-
 outputLine = function(poem) {
     if(window.line < poem.length) {
         var line = poem[window.line++];
@@ -56,49 +38,67 @@ outputLine = function(poem) {
             url: "/word",
             data: { words: line },
         	success: function(data) {
-				console.log(window.line)
-				console.log(data)
+				//console.log(window.line)
+				//console.log(data)
 				window.imgs.push(data.url)
 				$('#wrapper').fadeOut('slow', function() {
-					$('full').hide();
+					$('#loader').hide();
+					$('#image-text').show();
 					$('#word').html(data.word);
 					$('#text').html(line);
 					$('#full').append(line+'<br/>');
-					$('#image').attr('src', data.url);
-					$('#image').attr('alt', line);
-					$('#image-credits').html(
-						'<p>'
-						+'<a href="'
-						+data.user.url
-						+'">'
-						+data.user.real
-						+' ('
-						+data.user.name
-						+') '
-						+'</a>'
-						+'</p>'
-					)
+					if(data.url) {
+						$('#image').attr('src', data.url);
+						$('#image').attr('alt', line);
+						$('#image-credits').html(
+							'<p>'
+							+'<a href="'
+							+data.user.url
+							+'">'
+							+data.user.real
+							+' ('
+							+data.user.name
+							+') '
+							+'</a>'
+							+'</p>'
+						)
+					}
 					$('#wrapper').fadeIn('slow', function() {})
 				})
 			}
 		})
     }
+	/*
     else {
 		window.clearInterval(window.intervalId);
-			$('#wrapper').fadeOut('slow', function() {
-				rows = Math.ceil(window.imgs.length/3)
-				tbl = "<tbl>"
-				for(var i=0; i < window.imgs; i++) {
-					tbl += "<td><img src='"+window.imgs[i]+"' width='100px'/></td>"
-					if(0 == i % rows) {
-						tbl += "</tr><tr>"
-					}
+		$('#wrapper').fadeOut('slow', function() {
+			rows = Math.ceil(window.imgs.length/3)
+			tbl = "<tbl>"
+			for(var i=0; i < window.imgs; i++) {
+				tbl += "<td><img src='"+window.imgs[i]+"' width='100px'/></td>"
+				if(0 == i % rows) {
+					tbl += "</tr><tr>"
 				}
-				tbl = "</tbl>"
-				$('#wrapper').empty()
-				$(tbl).appendTo('#wrapper')
-				$('#wrapper').fadeIn('slow', function() {})
+			}
+			tbl = "</tbl>"
+			$('#wrapper').empty()
+			$(tbl).appendTo('#wrapper')
+			$('#wrapper').fadeIn('slow', function() {})
 
-			})
+		})
 	}
+	*/
 }
+
+//$(document).ready(function() {
+	var theQueue = $({}); 
+	$.each(poem, function() {
+		outputLine(poem) 
+	})
+
+	$('#full-poem-button').toggle(
+		function() { $('#full').show() },
+		function() { $('#full').hide() }
+	);
+//});
+
