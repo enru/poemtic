@@ -30,7 +30,10 @@ class Visipo():
 			per_page=500,
 			content_type=1)
 		index = int(random.uniform(0,500))
-		p = photos.find('photos').findall('photo')[index]
+		try:
+			p = photos.find('photos').findall('photo')[index]
+		except IndexError, e:
+			return ''
 		return 'http://farm%(farm)s.staticflickr.com/%(server)s/%(id)s_%(secret)s.jpg' % p.attrib
 
 

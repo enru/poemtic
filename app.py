@@ -10,6 +10,7 @@ urls = (
 )
 
 app = web.application(urls,globals())
+render = web.template.render('templates/')
 
 allowed = (
     ('enrudo','hiyakawaka'),
@@ -26,7 +27,7 @@ def login_required(func):
 class Index:
 	#@login_required
 	def GET(self):
-		return 'hello'
+		return render.index()
 
 class Login:
     def GET(self):
