@@ -15,7 +15,7 @@
 
 body {font: 18px/27px 'DejaVuSansMonoBook', Arial, sans-serif;}
 /*body {font: 18px/27px 'MonospaceTypewriterRegular', Arial, sans-serif;}*/
-a { font-size: 8px; }
+/*a { font-size: 8px; }*/
 p, h1 { margin: 0; padding: 0; }
 
 img { border: none; }
@@ -24,9 +24,9 @@ img { border: none; }
 #text { padding: 10px 0; }
 #text:before { content: '\201C' }
 #text:after { content: '\201D' }
-#image { height: 200px; }
+#image { height: 300px; }
 #word { position:absolute; background-color: lightgray; padding: 10px; }
 #full { background-color: lightgray; padding: 10px; margin-bottom: 10px; }
-.credits { font-size: 10px; line-height: 11px; }
+.credits { font-size: 12px; line-height: 13px; }
 .clear { clear: both; }
 
