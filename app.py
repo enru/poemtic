@@ -24,9 +24,9 @@ def login_required(func):
 	return f
 
 class Index:
-	@login_required
+	#@login_required
 	def GET(self):
-		return 'This is the index page'
+		return 'hello'
 
 class Login:
     def GET(self):
@@ -50,7 +50,7 @@ class Word:
 	def POST(self):
 		i = web.input()
 		v = Visipo('1c9999f58ecae73d1fcb474014fa1edc')
-		return v.image(i.data)
+		return v.image(i.words)
 
 if __name__=='__main__':
     app.run()
