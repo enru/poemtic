@@ -66,6 +66,7 @@ theEnd = function() {
 		}
 		tbl += "</ul>"
 		$('#image-text').empty().html(tbl)
+		$('#full').show()
 	}).fadeIn('fast', function() {})
 }
 
