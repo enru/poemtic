@@ -9,10 +9,10 @@ output = function(line) {
             url: "/word",
             data: { words: line },
         	complete: function() {
-				$('#wrapper').fadeOut('slow', function() {
+				$('#wrapper').fadeOut('3000', function() {
 					$('.load-wrap').hide();
 					$('#image-text').show();
-				}).fadeIn('slow', function() {})
+				}).fadeIn('3000', function() {})
 			},
 			error: function() {
 				error_img = 'http://farm5.staticflickr.com/4129/5073166764_1611bf7323.jpg';
@@ -59,7 +59,7 @@ output = function(line) {
 theEnd = function() {
 	$('.poem .line').removeClass('active');
 	$(this).removeClass('active')
-	$('#image-text').fadeOut('slow', function() {
+	$('#image-text').fadeOut('3000', function() {
 		tbl = "<ul class='imgs'>"
 		for(var i=0; i < window.imgs.length; i++) {
 			tbl += "<li><img src='"+window.imgs[i].replace(/\.jpg$/, '_s.jpg')+"' /></li>"
@@ -67,7 +67,7 @@ theEnd = function() {
 		tbl += "</ul>"
 		$('#image-text').empty().html(tbl)
 		$('#full').show()
-	}).fadeIn('slow', function() {})
+	}).fadeIn('3000', function() {})
 }
 
 $(document).ready(function() {
