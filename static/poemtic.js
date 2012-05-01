@@ -9,7 +9,7 @@ output = function(line) {
             url: "/word",
             data: { words: line },
         	complete: function() {
-				$('#wrapper').fadeOut('fast', function() {
+				$('#wrapper').fadeOut('slow', function() {
 					$('.load-wrap').hide();
 					$('#image-text').show();
 				}).fadeIn('fast', function() {})
@@ -59,7 +59,7 @@ output = function(line) {
 theEnd = function() {
 	$('.poem .line').removeClass('active');
 	$(this).removeClass('active')
-	$('#image-text').fadeOut('fast', function() {
+	$('#image-text').fadeOut('slow', function() {
 		tbl = "<ul class='imgs'>"
 		for(var i=0; i < window.imgs.length; i++) {
 			tbl += "<li><img src='"+window.imgs[i].replace(/\.jpg$/, '_s.jpg')+"' /></li>"
@@ -74,8 +74,6 @@ $(document).ready(function() {
 		output($(this).html()) 
 	})
 	intervalId = window.setInterval(function() {
-		console.log(window.imgs.length)
-		console.log(window.lines)
 		if(window.imgs.length == window.lines) {
 			window.clearInterval(intervalId)
 			window.setTimeout(theEnd, 5000)
