@@ -1,30 +1,50 @@
 <html>
 <head>
-<link rel="stylesheet" href="static/visipo.css" type="text/css">
+<link rel="stylesheet" href="static/poemtic.css" type="text/css">
 </head>
 <body>
+<a href='#' id='full-poem-button'>show/hide full poem</a>
+<h1>poemtic <span style='font-size: small'> coded by neill russell @enru at #chscot 2012</span></h1>
+<div id='poem-credits' class='credits'>
+	<h2>Clydegrad by Edwin Morgan</h2>
+	<p>Reproduced by permission of the publisher.</p>
+	<p>from Sonnets from Scotland (Mariscat, 1984)</p>
+	<p><a href='http://www.mariscatpress.co.uk/Mariscat/Home.html'>http://www.mariscatpress.co.uk/Mariscat/Home.html</a></p>
+</div>
 <div id='wrapper'>
-	<img id='loader' src='/static/ajax-loader.gif' alt='loading...'/>
 	<div id='image-text' style='display: none'>
 		<div id='text' class='text'></div>
-		<div id='word' ></div>
 		<div class='img-wrap'>
 			<img id='image' src='' alt=''/>
 			<div id='image-credits' class='credits'></div>
 		</div>
 	</div>
 	<div class='clear'></div>
-	<div id='poem-credits' class='credits'>
-		<h2>Clydegrad by Edwin Morgan</h2>
-		<p><a href='http://www.mariscatpress.co.uk/Mariscat/Home.html'>http://www.mariscatpress.co.uk/Mariscat/Home.html</a></p>
-		<p>Reproduced by permission of the publisher.</p>
-		<p>from Sonnets from Scotland (Mariscat, 1984)</p>
+	<div class="load-wrap" style="text-align: center;">
+		<p><img id="loader" src="/static/ajax-loader.gif" alt="loading..."></p>
+		<p>please wait while your visual poem is composed</p>
 	</div>
-	<a href='#' id='full-poem-button'>show/hide full poem</a>
-	<div id='full' class='text' style='display:none'></div>
-	<h1>poemtic <br/><span style='font-size: small'> coded by neill russell @enru at #chscot 2012</span></h1>
+	<div id='full' class='text' style='display:none'>
+		<ul class='poem'>
+		<li class='line' id='line-1'>It was so fine we lingered there for hours.</li>
+		<li class='line' id='line-2'>The long broad streets shone strongly after rain.</li>
+		<li class='line' id='line-3'>Sunset blinded the tremble of the crane</li>
+		<li class='line' id='line-4'>we watched from, dazed the heliport-towers.</li>
+		<li class='line' id='line-5'>The mile-high buildings flashed, flushed, greyed, went dark,</li>
+		<li class='line' id='line-6'>greyed, flushed, flashed, chameleons under flak</li>
+		<li class='line' id='line-7'>of cloud and sun. The last far thunder-sack</li>
+		<li class='line' id='line-8'>ripped and spilled its grumble. Ziggurat-stark,</li>
+		<li class='line' id='line-9'>a power-house reflected in the lead</li>
+		<li class='line' id='line-10'>of the old twilight river leapt alive</li>
+		<li class='line' id='line-11'>lit up at every window, and a boat</li>
+		<li class='line' id='line-12'>of students rowed past, slid from black to red</li>
+		<li class='line' id='line-13'>into the blaze. But where will they arrive</li>
+		<li class='line' id='line-14'>with all, boat, city, earth, like them, afloat?</li>
+		</ul>                                         
+	</div>
 </div>
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-<script type='text/javascript' src='/static/visipo.js'></script>
+<script src="https://raw.github.com/gist/1039247/681493f224f237081328b2b916ab4249e60bedb8/jQuery.ajaxQueue.min.js"></script>
+<script type='text/javascript' src='/static/poemtic.js'></script>
 </body>
 </html>

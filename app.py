@@ -1,7 +1,8 @@
 import web
 import re
 import base64
-from visipo import Visipo
+from poemtic import Poemtic
+import os
 
 urls = (
 	'/','Index',
@@ -18,9 +19,9 @@ class Index:
 class Word:
 	def POST(self):
 		i = web.input()
-		v = Visipo('1c9999f58ecae73d1fcb474014fa1edc')
-		return v.image(i.words)
+		p = Poemtic(os.environ['FLICKR_API_KEY'])
+		return p.image(i.words)
 
 if __name__=='__main__':
-    app.run()
+	app.run()
 

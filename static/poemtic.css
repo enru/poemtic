@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'DejaVuSansMonoBook';
+    src: url('/static/DejaVuSansMono-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {font: 18px/27px 'DejaVuSansMonoBook', Arial, sans-serif; }
+a { font-size: 8px; }
+p, h1 { margin: 0; padding: 0; }
+
+img { border: none; }
+#text { font-size: 10px; padding: 10px 0; }
+#text:before { content: '\201C' }
+#text:after { content: '\201D' }
+#image { height: 300px; }
+#full-poem-button { float: right; font-size: 10px; }
+#poem-credits { float: right; text-align: right; }
+.credits { font-size: 7px; line-height: 11px; }
+.clear { clear: both; }
+.theword { text-decoration: underline; font-weight: bold; }
+ul.imgs { width: 300px; }
+ul.imgs li { display: inline; }
+.poem .line { list-style: none; }
+.poem .line.active { list-style: disc; }
+
