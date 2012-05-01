@@ -12,7 +12,7 @@ output = function(line) {
 				$('#wrapper').fadeOut('slow', function() {
 					$('.load-wrap').hide();
 					$('#image-text').show();
-				}).fadeIn('fast', function() {})
+				}).fadeIn('slow', function() {})
 			},
 			error: function() {
 				error_img = 'http://farm5.staticflickr.com/4129/5073166764_1611bf7323.jpg';
@@ -67,7 +67,7 @@ theEnd = function() {
 		tbl += "</ul>"
 		$('#image-text').empty().html(tbl)
 		$('#full').show()
-	}).fadeIn('fast', function() {})
+	}).fadeIn('slow', function() {})
 }
 
 $(document).ready(function() {
