@@ -1,5 +1,6 @@
 window.lines = 0
 window.imgs = []
+window.error_img = 'http://farm5.staticflickr.com/4129/5073166764_1611bf7323.jpg';
 
 output = function(line) {
 		window.lines++
@@ -9,49 +10,50 @@ output = function(line) {
             url: "/word",
             data: { words: line },
         	complete: function() {
-				$('#wrapper').fadeOut('3000', function() {
 					$('.load-wrap').hide();
 					$('#image-text').show();
-				}).fadeIn('3000', function() {})
 			},
 			error: function() {
-				error_img = 'http://farm5.staticflickr.com/4129/5073166764_1611bf7323.jpg';
-				window.imgs.push(error_img)
-				$('#text').html(line);
-				$('#image').attr('src', error_img);
-				$('#image').attr('alt', 'not found');
-				$('#image-credits').html('n/a')
+				$('#wrapper').fadeOut('1000', function() {
+					window.imgs.push(window.error_img)
+					$('#text').html(line);
+					$('#image').attr('src', window.error_img);
+					$('#image').attr('alt', 'not found');
+					$('#image-credits').html('n/a')
+				}).fadeIn('2000', function() {})
 			},
 			success: function(data) {
-				var newLine = line.replace(data.word, '<span class="theword">'+data.word+'</span>');
-				$('#text').html(newLine);
-				$('.poem .line').each(function() { 
-					$(this).removeClass('active')
-					if($(this).html() == line) {
-						$(this).html(newLine) 
-						$(this).addClass('active')
+				$('#wrapper').fadeOut('1000', function() {
+					var newLine = line.replace(data.word, '<span class="theword">'+data.word+'</span>');
+					$('#text').html(newLine);
+					$('.poem .line').each(function() { 
+						$(this).removeClass('active')
+						if($(this).html() == line) {
+							$(this).html(newLine) 
+							$(this).addClass('active')
+						}
+					})
+					if(!data.url) {
+						data.url = 'http://farm5.staticflickr.com/4129/5073166764_1611bf7323.jpg';
 					}
-				})
-				if(data.url) {
 					window.imgs.push(data.url)
 					$('#image').attr('src', data.url);
 					$('#image').attr('alt', line);
-					$('#image-credits').html(
-						'<p>&copy;&nbsp;'
-						+'<a href="'
-						+data.user.url
-						+'">'
-						+data.user.real
-						+' ('
-						+data.user.name
-						+') '
-						+'</a>'
-						+'</p>'
-					)
-				}
-				else {
-					this.error();
-				}
+					if(data.user) {
+						$('#image-credits').html(
+							'<p>&copy;&nbsp;'
+							+'<a href="'
+							+data.user.url
+							+'">'
+							+data.user.real
+							+' ('
+							+data.user.name
+							+') '
+							+'</a>'
+							+'</p>'
+						)
+					}
+				}).fadeIn('2000', function() {})
 			}
 		})
 }
