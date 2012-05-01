@@ -20,7 +20,7 @@ output = function(line) {
 					$('#image').attr('src', window.error_img);
 					$('#image').attr('alt', 'not found');
 					$('#image-credits').html('n/a')
-				}).fadeIn('2000', function() {})
+				}).fadeIn('3000', function() {})
 			},
 			success: function(data) {
 				$('#wrapper').fadeOut('1000', function() {
@@ -53,7 +53,7 @@ output = function(line) {
 							+'</p>'
 						)
 					}
-				}).fadeIn('2000', function() {})
+				}).fadeIn('3000', function() {})
 			}
 		})
 }
