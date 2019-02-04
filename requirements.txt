@@ -1,4 +1,4 @@
-PyYAML==3.10
+pyyaml ~> 4.2b1
 flickrapi==1.4.2
 nltk==2.0.1rc4
 numpy==1.6.1
